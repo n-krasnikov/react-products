@@ -1,0 +1,12 @@
+.product-card {
+    display: flex;
+    flex-direction: column;
+    padding: 5px;
+    width: 20%;
+    border: 2px solid white;
+}
+
+.price-block {
+    display: flex;
+    justify-content: space-evenly;
+}
