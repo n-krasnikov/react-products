@@ -3,6 +3,7 @@ import { type FC } from 'react';
 import { IProps } from './ProductCard.props';
 
 import './ProductCard.css';
+import ImageGallery from '../ImageGallery/ImageGallery';
 
 const ProductCard: FC<IProps> = ({ 
   title,
@@ -10,10 +11,12 @@ const ProductCard: FC<IProps> = ({
   price,
   brand,
   discountPercentage,
+  images,
 }) => {
 
   return (
     <div className='product-card'>
+        <ImageGallery images={images}/>
         <h3>{title}</h3>
         <p>{description}</p>
         <div className='price-block'> 

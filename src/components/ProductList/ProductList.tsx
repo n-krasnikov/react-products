@@ -13,8 +13,8 @@ const ProductList: FC = () => {
   useEffect(() => {
     (async () => {
       const responseData = await getProducts();
-      if (responseData.status === 200) setProducts(responseData.data.products)      
-  })();
+      if (responseData.status === 200) setProducts(responseData.data.products)
+    })();
 
   },[]); 
 
@@ -28,6 +28,7 @@ const ProductList: FC = () => {
             price={product.price}
             discountPercentage={product.discountPercentage}
             brand={product.brand}
+            images={product.images}
           />
       )}
     </div>
