@@ -1,11 +1,28 @@
-.gallery {
-  width: auto;
-  height: 100px;
-  margin: 15px;
+.container {
+  position: relative;
 }
 
-.product-card-image {
+.button {
+  width: 2vw;
+  height: 2vw;
+  border-radius: 50%;
+  background-color: darkgray;
+  position: absolute;
+  translate: -50% -50%;
+}
+
+.next {
+  top: 50%;
+  left: 95%;
+}
+
+.prev {
+  top: 50%;
+  left: 5%;
+}
+
+.image {
   object-fit: contain;
   width: 100%;
-  height: 100%;
+  height: 10vh;
 }

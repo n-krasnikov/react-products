@@ -1,9 +1,10 @@
 import { type FC } from 'react';
 
+import { ImageGallery } from '../ImageGallery';
+
 import { IProps } from './ProductCard.props';
 
 import './ProductCard.css';
-import ImageGallery from '../ImageGallery/ImageGallery';
 
 const ProductCard: FC<IProps> = ({ 
   title,
