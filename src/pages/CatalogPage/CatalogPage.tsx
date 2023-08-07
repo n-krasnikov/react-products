@@ -3,11 +3,11 @@ import { useEffect, type FC, useState } from 'react';
 import getProducts from '../../api/getProducts';
 
 import { IProduct } from '../../vite-env';
-import { ProductCard } from '../ProductCard';
+import { ProductCard } from '../../components/ProductCard';
 
-import './ProductList.css';
+import './CatalogPage.css';
 
-const ProductList: FC = () => {
+const CatalogPage: FC = () => {
   const [products, setProducts] = useState<IProduct[]>([]);
 
   useEffect(() => {
@@ -29,10 +29,11 @@ const ProductList: FC = () => {
             discountPercentage={product.discountPercentage}
             brand={product.brand}
             images={product.images}
+            id={product.id}
           />
       )}
     </div>
   );
 }
 
-export default ProductList
+export default CatalogPage

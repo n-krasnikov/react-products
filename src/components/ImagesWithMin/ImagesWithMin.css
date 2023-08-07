@@ -1,0 +1,30 @@
+.images-min {
+    display: flex;
+    flex-direction: row;
+    gap: 2%;
+}
+
+.images-min > img {
+    object-fit: contain;
+    width: 10%;
+    border: 1px solid black;
+    border-radius: 10px;
+}
+
+.images {
+    text-align: left;
+    width: 50%;
+}
+
+.images-min .active {
+    border: 2px solid gray;
+    padding: 10px;
+}
+
+.image-big {
+    height: 30vh;
+    width: 100%;
+    margin-bottom: 15px;
+    object-fit: contain;
+    background-color: rgba(55,55,55,0.3);
+}

@@ -5,4 +5,5 @@ export interface IProps {
     discountPercentage: number,
     brand: string,
     images: string[],
+    id: number,
 }

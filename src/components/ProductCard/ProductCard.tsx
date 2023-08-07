@@ -5,6 +5,7 @@ import { ImageGallery } from '../ImageGallery';
 import { IProps } from './ProductCard.props';
 
 import './ProductCard.css';
+import { useNavigate } from 'react-router-dom';
 
 const ProductCard: FC<IProps> = ({ 
   title,
@@ -13,12 +14,19 @@ const ProductCard: FC<IProps> = ({
   brand,
   discountPercentage,
   images,
+  id,
 }) => {
+
+  const navigate = useNavigate();
+
+  const goToProduct = () => {
+    navigate(`/products/${id}`);
+  }
 
   return (
     <div className='product-card'>
         <ImageGallery images={images}/>
-        <h3>{title}</h3>
+        <h3 onClick={goToProduct}>{title}</h3>
         <p>{description}</p>
         <div className='price-block'> 
             <span>{price}$</span>
