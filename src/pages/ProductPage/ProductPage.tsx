@@ -15,7 +15,7 @@ const ProductPage: FC = () => {
 
   useEffect(() => {
     (async () => {
-      const responseData = await getProductById(id);
+      const responseData = await getProductById(id as string);
       if (responseData.status === 200) setProduct(responseData.data)
     })();
 
@@ -26,6 +26,7 @@ const ProductPage: FC = () => {
 
   return (
     <ProductDetail
+      id={product.id}
       images={product.images}
       title={product.title}
       description={product.description}

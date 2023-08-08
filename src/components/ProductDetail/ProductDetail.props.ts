@@ -1,4 +1,5 @@
 export interface IProps {
+  id: number;
   images: string[];
   title: string;
   description: string;
