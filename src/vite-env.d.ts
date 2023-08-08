@@ -22,3 +22,11 @@ export interface IProduct {
     thumbnail: string,
     images: string[],
 }
+
+export interface IState {
+    products: number[],
+    total: number,
+    addProduct(productId: number): void,
+    removeProduct(productId: number): void,
+    setTotal(total: number): void,
+}
