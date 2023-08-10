@@ -55,7 +55,7 @@ const ProductDetail: FC<IProps> = ({
             <span className='price'>{price} $</span> 
             <span className='sale'>{discountPercentage} %</span>
           </div>
-          {products.includes(id)
+          {products.find(product=> product.id === id)
             ?<span className='in-cart cart-btn'>Now in cart</span>
             :<span onClick={handlerAddToCart} className='add-to-cart cart-btn'>Add to cart</span>
           }

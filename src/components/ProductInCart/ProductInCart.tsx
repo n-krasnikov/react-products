@@ -9,9 +9,22 @@ import { IProduct } from '../../vite-env';
 import { LineLoader } from '../LineLoader';
 import { useCart } from '../../helpers';
 
-const ProductInCart: FC<IProps> = ({ productId }) => {
+const ProductInCart: FC<IProps> = ({ productId, productCount }) => {
   const [product, setProduct] = useState<IProduct | null>(null);  
-  const [removeProduct, setTotal, total] = useCart(state => [state.removeProduct, state.setTotal, state.total]);
+  const [count, setCount] = useState(productCount);
+  const [
+    countInc, 
+    countDec, 
+    removeProduct, 
+    setTotal, 
+    total] = useCart(state => [
+      state.countInc, 
+      state.countDec, 
+      state.removeProduct, 
+      state.setTotal, 
+      state.total
+    ]);
+
 
   useEffect(() => {
     (async () => {
@@ -27,8 +40,24 @@ const ProductInCart: FC<IProps> = ({ productId }) => {
   
   const handleDelete = () => {
     removeProduct(product.id)
-    setTotal(total - product.price);
+    setTotal(total - (product.price * count));
   };
+
+  const handleIncrement = () => {
+    if (count < product.stock) {
+      countInc(productId);
+      setTotal(total + product.price);
+      setCount(count + 1);
+    }
+  }
+
+  const handleDecrement = () => {
+    if (count > 1 && count < product.stock) {
+      countDec(productId);
+      setTotal(total + product.price);
+      setCount(count - 1);
+    }
+  }
 
   return (
       <div className='cart-product'>
@@ -41,7 +70,12 @@ const ProductInCart: FC<IProps> = ({ productId }) => {
           <h2>{product.title}</h2>
           <span>{product.description}</span>
         </div>
-        <span className='cart-product-price'>{product.price} $</span>
+        <div className='product-counter'>
+          <span onClick={handleDecrement} className='counter-btn'>-</span>
+          <span>{count}</span>
+          <span onClick={handleIncrement} className='counter-btn'>+</span>
+        </div>
+        <span className='cart-product-price'>{product.price * count} $</span>
         <span onClick={handleDelete} className='cart-product-delete'>X</span>
       </div>
   );

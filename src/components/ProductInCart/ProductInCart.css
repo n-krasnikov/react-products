@@ -38,3 +38,19 @@
   color: red;
   cursor: pointer;
 }
+
+.product-counter {
+  align-self: center;
+  border: 2px solid gray;
+  font-weight: 700;
+  border-radius: 15px;
+  padding: 10px;
+}
+
+.product-counter > * {
+  margin: 10px;
+}
+
+.counter-btn {
+  cursor: pointer;
+}

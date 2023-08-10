@@ -14,7 +14,11 @@ const CartPage: FC = () => {
     <div>
       {products.map((product) => {
         return (
-          <ProductInCart key={product} productId={product}/>
+          <ProductInCart 
+            key={product.id} 
+            productId={product.id}
+            productCount={product.count}
+          />
         )
       })}
       <div className='cart-summary'> Summary: {total} $</div>

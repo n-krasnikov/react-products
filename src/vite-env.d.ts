@@ -24,9 +24,16 @@ export interface IProduct {
 }
 
 export interface IState {
-    products: number[],
+    products: ICartItem[],
     total: number,
-    addProduct(productId: number): void,
-    removeProduct(productId: number): void,
+    addProduct(id: number): void,
+    removeProduct(id: number): void,
     setTotal(total: number): void,
+    countInc(id: number): void,
+    countDec(id: number): void,
+}
+
+interface ICartItem {
+    id: number,
+    count: number,
 }
