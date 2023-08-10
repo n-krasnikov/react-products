@@ -54,7 +54,7 @@ const ProductInCart: FC<IProps> = ({ productId, productCount }) => {
   const handleDecrement = () => {
     if (count > 1 && count < product.stock) {
       countDec(productId);
-      setTotal(total + product.price);
+      setTotal(total - product.price);
       setCount(count - 1);
     }
   }
