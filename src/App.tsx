@@ -6,6 +6,7 @@ import { ProductPage } from './pages/ProductPage'
 import { CartPage } from './pages/CartPage'
 
 import './App.css'
+import { Test } from './components/Test'
 
 function App() {
 
@@ -17,6 +18,7 @@ function App() {
           <Route path="products/:id" element={<ProductPage />} />
           <Route path='cart' element={<CartPage />} />
         </Route>
+        <Route path="/dbg" element={<Test />} />
       </Routes>
     </BrowserRouter>
   )

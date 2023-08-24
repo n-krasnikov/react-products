@@ -10,6 +10,12 @@ const CartPage: FC = () => {
 
   const [products, total] = useCart(state => [state.products, state.total]);
 
+  if (products.length === 0) {
+    return (
+      <h1>It seems empty...</h1>
+    )
+  }
+
   return (
     <div>
       {products.map((product) => {
@@ -21,6 +27,7 @@ const CartPage: FC = () => {
           />
         )
       })}
+      <hr/>
       <div className='cart-summary'> Summary: {total} $</div>
     </div>
   );

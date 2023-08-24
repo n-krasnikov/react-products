@@ -10,19 +10,20 @@ const ImagesWithMin: FC<IProps> = ({ images }) => {
     return(
         <div className='images'>
         <img src={images[activeId]} className='image-big'/>
-        <div className='images-min'>
-          {
-            images.map(
-              (image, index) => 
-                <img 
-                  className={(index === activeId)? 'active' : ''} 
-                  src={image}
-                  onClick={() => setActiveId(index)}
-                  key={image}
-                />
-              )
-          }
-        </div>
+        {images.length > 1 && 
+          <div className='images-min'>
+            {
+              images.map(
+                (image, index) => 
+                  <img 
+                    className={(index === activeId)? 'active' : ''} 
+                    src={image}
+                    onClick={() => setActiveId(index)}
+                    key={image}
+                  />
+                )
+            }
+          </div>}
       </div>
     )
 }

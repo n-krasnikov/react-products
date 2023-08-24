@@ -9,7 +9,9 @@ const BasePage: FC = () => {
     return (
         <>
             <Header />
-            <Outlet />
+            <div className={'content'}>
+                <Outlet />
+            </div>
         </>
     );
 };

@@ -1,10 +1,19 @@
 .header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    box-sizing: border-box;
+    z-index: 999;
+
     display: flex;
     justify-content: space-between;
+    
+    background-color: #0e0e0e;
     border: 2px solid grey;
     border-radius: 0 0 20px 20px;
     margin-bottom: 5%;
-    padding: 30px 10%;
+    padding: 30px 20%;
 }
 
 .header > * {
