@@ -6,9 +6,9 @@ import './ImageGallery.css';
 
 const ImageGallery: FC<IProps> = ({images}) => {
   const [activeId, setActiveId] = useState(0);
+  const [isHvover, setIsHover] = useState(false);
 
   const handlerNext = () => {
-    console.log(images[activeId]);
     activeId === images.length - 1
     ? setActiveId(0) 
     : setActiveId(activeId + 1);
@@ -25,15 +25,18 @@ const ImageGallery: FC<IProps> = ({images}) => {
   }
 
   useEffect(() => {
-    const timerId = setTimeout(()=>handlerNext(), 3000);
+    let timerId = null;
+    if (isHvover) {
+      timerId = setTimeout(()=>handlerNext(), 1500);
+    }
     return () => clearTimeout(timerId)
-  }, [activeId])
+  }, [isHvover, activeId])
 
   // console.log(images)
 
   return (
-    <div className='container'>
-      <img src={images[activeId]} className='image'/>
+    <div className='container' onMouseEnter={() => setIsHover(true)} onMouseLeave={() => setIsHover(false)}>
+      <img src={images[activeId]} className='image' alt='Loading...'/>
       {
         images.length > 1 && 
         <>
