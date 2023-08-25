@@ -1,10 +1,19 @@
 .product-card {
+    box-sizing: border-box;
     display: flex;
     flex-direction: column;
-    padding: 5px;
-    width: 20%;
-    border: 2px solid white;
+    width: calc(25% - 10px);
+    height: 30rem;
+    border: 2px solid black;
+    border-radius: 25px;
+    box-shadow: 0 0 15px black ;
 }
+
+.product-card:hover {
+    box-shadow: 0 0 10px cyan inset;
+    border-color: white;
+  }
+  
 
 .price-block {
     display: flex;

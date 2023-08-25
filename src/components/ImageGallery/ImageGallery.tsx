@@ -27,21 +27,16 @@ const ImageGallery: FC<IProps> = ({images}) => {
 
   return (
     <div 
-      className='container' 
+      className='gallery' 
       onMouseEnter={handleHover} 
       onMouseLeave={handleLeave}
     >
       <img src={images[activeId]} className='image' />
-      {
-        images.length > 1 && 
-        <>
-          <div className='dots'>
-            {images.map((_, ind) => (
-              <div className={(ind === activeId) ? 'active' : '' } onClick={() => handleClick(ind)} key={ind} />
-            ))}
-          </div>
-        </>
-      }
+        <div className='dots'>
+          {images.length > 1 && images.map((_, ind) => (
+            <div className={(ind === activeId) ? 'active' : '' } onClick={() => handleClick(ind)} key={ind} />
+          ))}
+        </div>
     </div>
   );
 };
