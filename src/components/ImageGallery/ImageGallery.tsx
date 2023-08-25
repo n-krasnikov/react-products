@@ -8,35 +8,30 @@ const ImageGallery: FC<IProps> = ({images}) => {
   const [activeId, setActiveId] = useState(0);
   const [isHvover, setIsHover] = useState(false);
 
+  const handleClick = (id: number) => setActiveId(id);
+  const handleHover = () => setIsHover(true);
+  const handleLeave = () => setIsHover(false);
+
   const handlerNext = () => {
     activeId === images.length - 1
     ? setActiveId(0) 
     : setActiveId(activeId + 1);
-  }
-
-  // const handlerPrev = () => {
-  //   activeId === 0
-  //   ? setactiveId(images.length - 1) 
-  //   : setactiveId(activeId - 1);
-  // }
-
-  const handleClick = (id) => {
-    setActiveId(id)
-  }
+  };
 
   useEffect(() => {
-    let timerId = null;
-    if (isHvover) {
-      timerId = setTimeout(()=>handlerNext(), 1500);
-    }
-    return () => clearTimeout(timerId)
-  }, [isHvover, activeId])
-
-  // console.log(images)
+    const timerId = isHvover
+      ? setTimeout(()=>handlerNext(), 1500)
+      : 0;
+    return () => clearTimeout(timerId);
+  }, [isHvover, activeId]);
 
   return (
-    <div className='container' onMouseEnter={() => setIsHover(true)} onMouseLeave={() => setIsHover(false)}>
-      <img src={images[activeId]} className='image' alt='Loading...'/>
+    <div 
+      className='container' 
+      onMouseEnter={handleHover} 
+      onMouseLeave={handleLeave}
+    >
+      <img src={images[activeId]} className='image' />
       {
         images.length > 1 && 
         <>
@@ -49,6 +44,6 @@ const ImageGallery: FC<IProps> = ({images}) => {
       }
     </div>
   );
-}
+};
 
-export default ImageGallery
+export default ImageGallery;

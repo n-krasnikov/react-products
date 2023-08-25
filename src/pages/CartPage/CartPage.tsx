@@ -13,7 +13,7 @@ const CartPage: FC = () => {
   if (products.length === 0) {
     return (
       <h1>It seems empty...</h1>
-    )
+    );
   }
 
   return (
@@ -25,12 +25,12 @@ const CartPage: FC = () => {
             productId={product.id}
             productCount={product.count}
           />
-        )
+        );
       })}
       <hr/>
       <div className='cart-summary'> Summary: {total} $</div>
     </div>
   );
-}
+};
 
-export default CartPage
+export default CartPage;

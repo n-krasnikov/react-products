@@ -25,7 +25,7 @@ const ImagesWithMin: FC<IProps> = ({ images }) => {
             }
           </div>}
       </div>
-    )
-}
+    );
+};
 
 export default ImagesWithMin;
