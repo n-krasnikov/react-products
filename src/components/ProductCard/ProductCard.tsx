@@ -21,20 +21,20 @@ const ProductCard: FC<IProps> = ({
 
   const goToProduct = () => {
     navigate(`/products/${id}`);
-  }
+  };
 
   return (
     <div className='product-card'>
         <ImageGallery images={images}/>
-        <h3 onClick={goToProduct}>{title}</h3>
-        <p>{description}</p>
+        <h3 className='title' onClick={goToProduct}>{title}</h3>
+        <p className='description'>{description}</p>
         <div className='price-block'> 
             <span>{price}$</span>
             <span>SALE {discountPercentage} %</span>
         </div>
-        <p>{brand}</p>
+        <p className='brand'>{brand}</p>
     </div>
   );
-}
+};
 
-export default ProductCard
+export default ProductCard;

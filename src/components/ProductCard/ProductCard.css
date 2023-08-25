@@ -3,10 +3,11 @@
     display: flex;
     flex-direction: column;
     width: calc(25% - 10px);
-    height: 30rem;
-    border: 2px solid black;
+    height: 28rem;
+    border: 1px solid black;
     border-radius: 25px;
-    box-shadow: 0 0 15px black ;
+    box-shadow: 0 0 15px black;
+    position: relative;
 }
 
 .product-card:hover {
@@ -14,12 +15,43 @@
     border-color: white;
   }
   
-
-.price-block {
-    display: flex;
-    justify-content: space-evenly;
+.product-card > .description {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    padding: 0 10px;
 }
 
-h3 {
+.product-card > .title {
+    margin: 5px;
     cursor: pointer;
+}
+
+.product-card > .price-block {
+    display: flex;
+    justify-content: space-evenly;
+    font-weight: 500;
+    font-size: 18px;
+    margin: 2% 0;
+}
+
+.product-card > .brand {
+    position: absolute;
+    bottom: 0%;
+    left: 50%;
+    translate: -50% 0;
+    
+    text-wrap: nowrap;
+    width: fit-content;
+    box-sizing: border-box;
+    margin: 0 0 5px 0;
+    padding: 15px 10px 0 10px;
+    border-bottom: 1px solid transparent;
+}
+
+.product-card > .brand:hover {
+    border-bottom: 1px solid cyan;
+    cursor: pointer;
+    color: cyan;
 }
