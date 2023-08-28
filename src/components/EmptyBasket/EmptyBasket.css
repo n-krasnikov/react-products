@@ -1,0 +1,18 @@
+.empty-basket {
+  padding-top: 50px;
+}
+
+.empty-basket > * {
+  margin: 25px auto;
+  width: fit-content;
+}
+
+.empty-basket > h2 {
+  text-decoration: underline;
+}
+
+.empty-basket > h2:hover {
+  cursor: pointer;
+  text-decoration: none;
+  color: #80FFFF;
+}

@@ -53,9 +53,3 @@
     padding: 15px 10px 0 10px;
     border-bottom: 1px solid transparent;
 }
-
-.product-card > .brand:hover {
-    border-bottom: 1px solid cyan;
-    cursor: pointer;
-    color: cyan;
-}
