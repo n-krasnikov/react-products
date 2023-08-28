@@ -17,9 +17,11 @@
     object-fit: contain;
     height: 50px;
     width: 10%;
-    border: 1px solid black;
-    border-radius: 10px;
+    /* border: 1px solid black; */
+    border-radius: 15px;
+    padding: 5px;
     position: relative;
+    box-shadow: 0 0 5px cyan inset;
 }
 
 .images {
@@ -29,7 +31,8 @@
 }
 
 .images-min .active {
-    border: 2px solid lime;
+    /* border: 2px solid cyan; */
+    box-shadow: 0 0 5px cyan;
     bottom: 15px;
 }
 

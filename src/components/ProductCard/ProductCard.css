@@ -24,8 +24,12 @@
 }
 
 .product-card > .title {
+    padding: 0 5px;
     margin: 5px;
     cursor: pointer;
+    text-wrap: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .product-card > .price-block {

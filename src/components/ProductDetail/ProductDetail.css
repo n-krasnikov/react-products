@@ -88,3 +88,8 @@
     background-color: limegreen;
     color: black;
 }
+
+.buttons {
+    display: flex;
+    justify-content: space-between;
+}

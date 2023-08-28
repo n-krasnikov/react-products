@@ -6,11 +6,23 @@
 }
 
 .image {
-  object-fit: contain;
   width: 100%;
   height: inherit;
   border-radius: 25px 25px 0 0;
+}
+
+.image-foreground {
+  object-fit: contain;
   z-index: -1;
+}
+
+.image-background {
+  object-fit: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+  filter: blur(1px);
+  z-index: -10;
 }
 
 .dots {
@@ -22,6 +34,7 @@
   height: 30px;
   width: 100%;
   background-color: rgba(14, 14, 14, 0.9);
+  border-bottom: 2px solid grey;
 }
 
 .dots > div {

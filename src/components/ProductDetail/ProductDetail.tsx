@@ -4,7 +4,7 @@ import { IProps } from './ProductDetail.props';
 
 import { ImagesWithMin } from '../ImagesWithMin';
 
-import './ProductDetail.css'
+import './ProductDetail.css';
 import { useCart } from '../../helpers';
 
 
@@ -34,7 +34,7 @@ const ProductDetail: FC<IProps> = ({
     const handlerAddToCart = () => {
       addToCart(id);
       setTotal(total + price);
-    }
+    };
 
     return (
         <div className='container'>
@@ -55,13 +55,13 @@ const ProductDetail: FC<IProps> = ({
             <span className='price'>{price} $</span> 
             <span className='sale'>{discountPercentage} %</span>
           </div>
-          {products.find(product=> product.id === id)
-            ?<span className='in-cart cart-btn'>Now in cart</span>
-            :<span onClick={handlerAddToCart} className='add-to-cart cart-btn'>Add to cart</span>
-          }
-        </div>
+            {products.find(product=> product.id === id)
+              ?<span className='in-cart cart-btn'>Now in cart</span>
+              :<span onClick={handlerAddToCart} className='add-to-cart cart-btn'>Add to cart</span>
+            }
+          </div>
       </div>
-    )
-}
+    );
+};
 
 export default ProductDetail;

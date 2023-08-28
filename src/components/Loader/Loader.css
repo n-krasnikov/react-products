@@ -3,11 +3,11 @@
   top: 50%;
   left: 50%;
   translate: -50% 50%;
-  border: 5px solid #f3f3f3;
+  border: 10px solid rgba(255, 255, 255, 0.9);
   border-radius: 50%;
-  border-top: 5px solid purple;
-  width: 120px;
-  height: 120px;
+  border-top: 10px solid cyan;
+  width: 180px;
+  height: 180px;
   -webkit-animation: spin 2s linear infinite; /* Safari */
   animation: spin 2s linear infinite;
 }

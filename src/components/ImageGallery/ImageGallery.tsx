@@ -20,7 +20,7 @@ const ImageGallery: FC<IProps> = ({images}) => {
 
   useEffect(() => {
     const timerId = isHvover
-      ? setTimeout(()=>handlerNext(), 1500)
+      ? setTimeout(handlerNext, 1500)
       : 0;
     return () => clearTimeout(timerId);
   }, [isHvover, activeId]);
@@ -31,7 +31,8 @@ const ImageGallery: FC<IProps> = ({images}) => {
       onMouseEnter={handleHover} 
       onMouseLeave={handleLeave}
     >
-      <img src={images[activeId]} className='image'/>
+      <img src={images[activeId]} className='image image-foreground'/>
+      <img src={images[activeId]} className='image image-background'/>
         <div className='dots'>
           {images.length > 1 && images.map((_, ind) => (
             <div className={(ind === activeId) ? 'active' : '' } onClick={() => handleClick(ind)} key={ind} />
