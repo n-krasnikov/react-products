@@ -1,10 +1,10 @@
 import { type FC } from 'react';
 
-import './CartPage.css';
-
-import { ProductInCart } from '../../components/ProductInCart';
 import { useCart } from '../../helpers';
 
+import { ProductInCart } from '../../components/ProductInCart';
+
+import './CartPage.css';
 
 const CartPage: FC = () => {
 

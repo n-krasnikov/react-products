@@ -1,11 +1,11 @@
 import { type FC } from 'react';
 
+import { useCart } from '../../helpers';
 import { IProps } from './ProductDetail.props';
 
 import { ImagesWithMin } from '../ImagesWithMin';
 
 import './ProductDetail.css';
-import { useCart } from '../../helpers';
 
 
 const ProductDetail: FC<IProps> = ({

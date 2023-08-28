@@ -1,13 +1,14 @@
 import { useEffect, type FC, useState } from 'react';
 
+import getProductById from '../../api/getProductById';
+import { IProduct } from '../../vite-env';
+import { useCart } from '../../helpers';
+import { IProps } from './ProductInCart.props';
+
+import { LineLoader } from '../LineLoader';
 
 import './ProductInCart.css';
 
-import { IProps } from './ProductInCart.props';
-import getProductById from '../../api/getProductById';
-import { IProduct } from '../../vite-env';
-import { LineLoader } from '../LineLoader';
-import { useCart } from '../../helpers';
 
 const ProductInCart: FC<IProps> = ({ productId, productCount }) => {
   const [product, setProduct] = useState<IProduct | null>(null);  
@@ -39,7 +40,7 @@ const ProductInCart: FC<IProps> = ({ productId, productCount }) => {
   if (product === null) return <LineLoader />;
   
   const handleDelete = () => {
-    removeProduct(product.id)
+    removeProduct(product.id);
     setTotal(total - (product.price * count));
   };
 
@@ -49,7 +50,7 @@ const ProductInCart: FC<IProps> = ({ productId, productCount }) => {
       setTotal(total + product.price);
       setCount(count + 1);
     }
-  }
+  };
 
   const handleDecrement = () => {
     if (count > 1 && count < product.stock) {
@@ -57,7 +58,7 @@ const ProductInCart: FC<IProps> = ({ productId, productCount }) => {
       setTotal(total - product.price);
       setCount(count - 1);
     }
-  }
+  };
 
   return (
       <div className='cart-product'>
@@ -81,4 +82,4 @@ const ProductInCart: FC<IProps> = ({ productId, productCount }) => {
   );
 };
 
-export default ProductInCart
+export default ProductInCart;

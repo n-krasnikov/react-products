@@ -1,9 +1,9 @@
 import { type FC } from 'react';
-import { useNavigate } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom';
 
+import { useCart } from '../../helpers';
 
 import './Header.css';
-import { useCart } from '../../helpers';
 
 const Header: FC = () => {
   const navigate = useNavigate();
@@ -14,7 +14,7 @@ const Header: FC = () => {
 
   const goToCart = () => {
     navigate('/cart');
-  }
+  };
 
   const products = useCart(state => state.products);
 
@@ -26,4 +26,4 @@ const Header: FC = () => {
   );
 };
 
-export default Header
+export default Header;

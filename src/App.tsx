@@ -1,14 +1,15 @@
-import {BrowserRouter, Routes, Route} from 'react-router-dom'
+import { FC } from 'react';
+import {BrowserRouter, Routes, Route} from 'react-router-dom';
 
-import { BasePage } from './pages/BasePage'
-import { CatalogPage } from './pages/CatalogPage'
-import { ProductPage } from './pages/ProductPage'
-import { CartPage } from './pages/CartPage'
+import { BasePage } from './pages/BasePage';
+import { CatalogPage } from './pages/CatalogPage';
+import { ProductPage } from './pages/ProductPage';
+import { CartPage } from './pages/CartPage';
+import { Test } from './components/Test';
 
-import './App.css'
-import { Test } from './components/Test'
+import './App.css';
 
-function App() {
+const App: FC = () => {
 
   return (
     <BrowserRouter>
@@ -21,7 +22,7 @@ function App() {
         <Route path="/dbg" element={<Test />} />
       </Routes>
     </BrowserRouter>
-  )
-}
+  );
+};
 
 export default App;

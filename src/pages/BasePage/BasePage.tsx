@@ -6,14 +6,14 @@ import { Header } from '../../components/Header';
 import './BasePage.css';
 
 const BasePage: FC = () => {
-    return (
-        <>
-            <Header />
-            <div className={'content'}>
-                <Outlet />
-            </div>
-        </>
-    );
+  return (
+    <>
+      <Header />
+      <div className={'content'}>
+        <Outlet />
+      </div>
+    </>
+  );
 };
 
-export default BasePage
+export default BasePage;

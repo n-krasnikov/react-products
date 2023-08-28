@@ -7,8 +7,6 @@ import { IProduct } from '../../vite-env';
 import { Loader } from '../../components/Loader';
 import { ProductDetail } from '../../components/ProductDetail';
 
-import './ProductPage.css'
-
 const ProductPage: FC = () => {
   const [product, setProduct] = useState<IProduct | null>(null);
   const { id } = useParams();
@@ -16,7 +14,7 @@ const ProductPage: FC = () => {
   useEffect(() => {
     (async () => {
       const responseData = await getProductById(id as string);
-      if (responseData.status === 200) setProduct(responseData.data)
+      if (responseData.status === 200) setProduct(responseData.data);
     })();
 
   },[]); 
@@ -37,6 +35,6 @@ const ProductPage: FC = () => {
       discountPercentage={product.discountPercentage}
     />
   );
-}
+};
 
-export default ProductPage
+export default ProductPage;

@@ -14,7 +14,7 @@ const CatalogPage: FC = () => {
   useEffect(() => {
     (async () => {
       const responseData = await getProducts();
-      if (responseData.status === 200) setProducts(responseData.data.products)
+      if (responseData.status === 200) setProducts(responseData.data.products);
     })();
 
   },[]); 
@@ -37,6 +37,6 @@ const CatalogPage: FC = () => {
       )}
     </div>
   );
-}
+};
 
-export default CatalogPage
+export default CatalogPage;
