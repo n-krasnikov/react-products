@@ -39,4 +39,5 @@ interface IBasketItem {
   description: string;
   count: number;
   price: number;
+  stock: number;
 }

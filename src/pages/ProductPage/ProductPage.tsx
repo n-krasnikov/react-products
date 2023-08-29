@@ -18,11 +18,10 @@ const ProductPage: FC = () => {
     })();
   },[]); 
 
-  if (product === null) return <Loader/>;
+  if (product === null) return <Loader />;
 
-  return (
-    <ProductDetail {...product} />
-  );
+  return <ProductDetail {...product} />;
+
 };
 
 export default ProductPage;

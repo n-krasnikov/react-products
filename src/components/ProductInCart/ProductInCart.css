@@ -51,6 +51,10 @@
   margin: 10px;
 }
 
-.counter-btn {
+.btn-active {
   cursor: pointer;
+}
+
+.btn-hidden {
+  display: none;
 }

@@ -1,9 +1,9 @@
 import { type FC } from 'react';
 import { useNavigate } from 'react-router-dom';
 
-import { EmptySpace } from '../ui/EmptySpace';
+import { EmptySpace } from '../../components/ui';
 
-import './EmptyBasket.css';
+import './EmptyPage.css';
 
 const EmptyBasket: FC = () => {
   const navigate = useNavigate();

@@ -24,9 +24,9 @@ const ProductInCart: FC<IBasketItem> = (product: IBasketItem) => {
           <span>{product.description}</span>
         </div>
         <div className='product-counter'>
-          <span onClick={handleDecrement} className='counter-btn'>-</span>
+          <span onClick={handleDecrement} className={(product.count === 1)? 'btn-hidden' : 'btn-active'}>-</span>
           <span>{product.count}</span>
-          <span onClick={handleIncrement} className='counter-btn'>+</span>
+          <span onClick={handleIncrement} className={(product.count === product.stock)? 'btn-hidden' : 'btn-active'}>+</span>
         </div>
         <span className='cart-product-price'>{product.price * product.count} $</span>
         <span onClick={handleDelete} className='cart-product-delete'>X</span>

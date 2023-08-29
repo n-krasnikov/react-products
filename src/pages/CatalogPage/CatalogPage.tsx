@@ -16,7 +16,6 @@ const CatalogPage: FC = () => {
       const responseData = await getProducts();
       if (responseData.status === 200) setProducts(responseData.data.products);
     })();
-
   },[]); 
 
   if (products.length === 0) return <Loader/>;

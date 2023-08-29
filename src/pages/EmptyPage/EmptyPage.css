@@ -4,7 +4,6 @@
 
 .empty-basket > * {
   margin: 25px auto;
-  width: fit-content;
 }
 
 .empty-basket > h2 {

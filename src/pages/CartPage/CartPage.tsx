@@ -2,15 +2,15 @@ import { type FC } from 'react';
 
 import { useBasket } from '../../helpers';
 
+import { EmptyPage } from '../EmptyPage';
 import { ProductInCart } from '../../components/ProductInCart';
-import { EmptyBasket } from '../../components/EmptyBasket';
 
 import './CartPage.css';
 
 const CartPage: FC = () => {
   const [products, total] = useBasket(state => [state.products, state.total]);
 
-  if (products.length === 0) return (<EmptyBasket />);
+  if (products.length === 0) return (<EmptyPage />);
 
   return (
     <div>

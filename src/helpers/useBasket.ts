@@ -18,6 +18,7 @@ const useBasket = create<ICartState>((set) => {
                 title: product.title,
                 description: product.description,
                 price: product.price,
+                stock: product.stock,
                 count: 1,
               }
             ],
