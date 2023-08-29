@@ -5,7 +5,7 @@ import { BasePage } from './pages/BasePage';
 import { CatalogPage } from './pages/CatalogPage';
 import { ProductPage } from './pages/ProductPage';
 import { CartPage } from './pages/CartPage';
-import { Test } from './components/Test';
+// import { Test } from './components/Test';
 
 import './App.css';
 
@@ -19,7 +19,7 @@ const App: FC = () => {
           <Route path="products/:id" element={<ProductPage />} />
           <Route path='cart' element={<CartPage />} />
         </Route>
-        <Route path="/dbg" element={<Test />} />
+        {/* <Route path="/dbg" element={<Test />} /> */}
       </Routes>
     </BrowserRouter>
   );

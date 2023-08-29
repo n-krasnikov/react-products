@@ -1,7 +1,7 @@
 import { type FC } from 'react';
 import { useNavigate } from 'react-router-dom';
 
-import { useCart } from '../../helpers';
+import { useBasket } from '../../helpers';
 
 import './Header.css';
 
@@ -16,7 +16,7 @@ const Header: FC = () => {
     navigate('/cart');
   };
 
-  const products = useCart(state => state.products);
+  const products = useBasket(state => state.products);
 
   return (
       <div className='header'>

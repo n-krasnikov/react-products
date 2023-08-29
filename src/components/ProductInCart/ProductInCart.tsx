@@ -1,64 +1,16 @@
-import { useEffect, type FC, useState } from 'react';
+import { type FC } from 'react';
 
-import getProductById from '../../api/getProductById';
-import { IProduct } from '../../vite-env';
-import { useCart } from '../../helpers';
-import { IProps } from './ProductInCart.props';
-
-import { LineLoader } from '../LineLoader';
+import { useBasket } from '../../helpers';
+import { IBasketItem } from '../../vite-env';
 
 import './ProductInCart.css';
 
+const ProductInCart: FC<IBasketItem> = (product: IBasketItem) => {
+  const [removeFromCart, incCounter, decCounter] = useBasket(state => [state.removeProduct, state.countInc, state.countDec]);
 
-const ProductInCart: FC<IProps> = ({ productId, productCount }) => {
-  const [product, setProduct] = useState<IProduct | null>(null);  
-  const [count, setCount] = useState(productCount);
-  const [
-    countInc, 
-    countDec, 
-    removeProduct, 
-    setTotal, 
-    total] = useCart(state => [
-      state.countInc, 
-      state.countDec, 
-      state.removeProduct, 
-      state.setTotal, 
-      state.total
-    ]);
-
-
-  useEffect(() => {
-    (async () => {
-      const responseData = await getProductById(productId.toString());
-      if (responseData.status === 200) {
-        setProduct(responseData.data);
-      }
-    })();
-
-  },[]); 
-
-  if (product === null) return <LineLoader />;
-  
-  const handleDelete = () => {
-    removeProduct(product.id);
-    setTotal(total - (product.price * count));
-  };
-
-  const handleIncrement = () => {
-    if (count < product.stock) {
-      countInc(productId);
-      setTotal(total + product.price);
-      setCount(count + 1);
-    }
-  };
-
-  const handleDecrement = () => {
-    if (count > 1 && count < product.stock) {
-      countDec(productId);
-      setTotal(total - product.price);
-      setCount(count - 1);
-    }
-  };
+  const handleDelete = () => removeFromCart(product.id);
+  const handleIncrement = () => incCounter(product.id);
+  const handleDecrement = () => decCounter(product.id);
 
   return (
       <div className='cart-product'>
@@ -73,10 +25,10 @@ const ProductInCart: FC<IProps> = ({ productId, productCount }) => {
         </div>
         <div className='product-counter'>
           <span onClick={handleDecrement} className='counter-btn'>-</span>
-          <span>{count}</span>
+          <span>{product.count}</span>
           <span onClick={handleIncrement} className='counter-btn'>+</span>
         </div>
-        <span className='cart-product-price'>{product.price * count} $</span>
+        <span className='cart-product-price'>{product.price * product.count} $</span>
         <span onClick={handleDelete} className='cart-product-delete'>X</span>
       </div>
   );

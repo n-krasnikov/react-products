@@ -23,18 +23,7 @@ const CatalogPage: FC = () => {
 
   return (
     <div className='product-list'>
-      {products.map(product => 
-          <ProductCard 
-            key={product.id} 
-            title={product.title}
-            description={product.description} 
-            price={product.price}
-            discountPercentage={product.discountPercentage}
-            brand={product.brand}
-            images={product.images}
-            id={product.id}
-          />
-      )}
+      {products.map(product => <ProductCard {...product} key={product.id} />)}
     </div>
   );
 };

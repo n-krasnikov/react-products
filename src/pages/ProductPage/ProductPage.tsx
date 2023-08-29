@@ -23,17 +23,7 @@ const ProductPage: FC = () => {
   if (product === null) return <Loader/>;
 
   return (
-    <ProductDetail
-      id={product.id}
-      images={product.images}
-      title={product.title}
-      description={product.description}
-      brand={product.brand}
-      rating={product.rating}
-      stock={product.stock}
-      price={product.price}
-      discountPercentage={product.discountPercentage}
-    />
+    <ProductDetail {...product} />
   );
 };
 

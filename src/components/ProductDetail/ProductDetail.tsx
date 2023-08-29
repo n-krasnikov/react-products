@@ -1,63 +1,46 @@
 import { type FC } from 'react';
 
-import { useCart } from '../../helpers';
-import { IProps } from './ProductDetail.props';
+import { useBasket } from '../../helpers';
+import { IProduct } from '../../vite-env';
 
 import { ImagesWithMin } from '../ImagesWithMin';
 
 import './ProductDetail.css';
 
 
-const ProductDetail: FC<IProps> = ({
-    images,
-    title,
-    description,
-    brand,
-    rating,
-    stock,
-    price,
-    discountPercentage,
-    id,
-}) => {
-    const [
-      products,
-      addToCart,
-      total,
-      setTotal
-    ] = useCart((state) => [
-      state.products, 
-      state.addProduct,
-      state.total,
-      state.setTotal
-    ]);
+const ProductDetail: FC<IProduct> = (product: IProduct) => {
+    const [products, addToCart, removeFromCart] = useBasket((state) => [state.products, state.addProduct, state.removeProduct ]);
 
-    const handlerAddToCart = () => {
-      addToCart(id);
-      setTotal(total + price);
+    const handlerAdd = () => {
+      addToCart({...product});
+    };
+
+    const handlerRemove = () => {
+      removeFromCart(product.id);
     };
 
     return (
         <div className='container'>
-        <ImagesWithMin images={images} />
+        <ImagesWithMin images={product.images} />
         <div className='product'>
-          <h2 className='product-title'>{title}</h2>
+          <h2 className='product-title'>{product.title}</h2>
           <div className='product-info'>
             <div className='product-desc'>
-              {description}
+              {product.description}
             </div>
             <div className='product-detail'>
-              <span>Brand: {brand}</span>
-              <span>Rating: {rating}</span>
-              <span>In stock now: {stock}</span>
+              <span>Brand: {product.brand}</span>
+              <span>Rating: {product.rating}</span>
+              <span>In stock now: {product.stock}</span>
             </div>
           </div>
           <div className='product-price'> 
-            <span className='price'>{price} $</span> 
-            <span className='sale'>{discountPercentage} %</span>
+            <span className='price'>{product.price} $</span> 
+            <span className='sale'>{product.discountPercentage} %</span>
           </div>
-            {products.find(product=> product.id === id)
-              ?<span className='in-cart cart-btn'>Now in cart</span>
-              :<span onClick={handlerAddToCart} className='add-to-cart cart-btn'>Add to cart</span>
+            {products.find(p => p.id === product.id)
+              ?<span onClick={handlerRemove} className='in-cart cart-btn'>Remove from cart</span>
+              :<span onClick={handlerAdd} className='add-to-cart cart-btn'>Add to cart</span>
             }
           </div>
       </div>
