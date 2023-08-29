@@ -29,7 +29,7 @@ const useBasket = create<ICartState>((set) => {
           return {
             ...state,
             products: state.products.filter(item => item.id!== productId),
-            total: state.total - item.price,
+            total: state.total - (item.price * item.count),
           };
         }),
         countInc: (productId: number) => set(state => {

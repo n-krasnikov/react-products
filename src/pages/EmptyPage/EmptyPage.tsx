@@ -10,10 +10,10 @@ const EmptyBasket: FC = () => {
   const goToMain = () => navigate('/');
 
   return (
-    <div className='empty-basket'>
+    <div className='empty-page'>
       <h1>It seems empty...</h1>
-      <EmptySpace />
       <h2 onClick={goToMain} >Go to product list</h2>
+      <EmptySpace />
     </div>
   );
 };
