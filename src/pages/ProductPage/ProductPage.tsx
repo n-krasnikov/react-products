@@ -4,7 +4,7 @@ import { useParams } from 'react-router-dom';
 import getProductById from '../../api/getProductById';
 import { IProduct } from '../../vite-env';
 
-import { Loader } from '../../components/Loader';
+import { Loader } from '../../components/ui';
 import { ProductDetail } from '../../components/ProductDetail';
 
 const ProductPage: FC = () => {
@@ -16,9 +16,7 @@ const ProductPage: FC = () => {
       const responseData = await getProductById(id as string);
       if (responseData.status === 200) setProduct(responseData.data);
     })();
-
   },[]); 
-
 
   if (product === null) return <Loader/>;
 

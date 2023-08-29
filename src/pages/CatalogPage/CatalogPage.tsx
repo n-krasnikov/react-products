@@ -3,7 +3,7 @@ import { useEffect, type FC, useState } from 'react';
 import getProducts from '../../api/getProducts';
 import { IProduct } from '../../vite-env';
 
-import { Loader } from '../../components/Loader';
+import { Loader } from '../../components/ui';
 import { ProductCard } from '../../components/ProductCard';
 
 import './CatalogPage.css';

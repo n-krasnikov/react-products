@@ -1,7 +1,9 @@
 import { type FC } from 'react';
+import { useNavigate } from 'react-router-dom';
+
+import { EmptySpace } from '../ui/EmptySpace';
 
 import './EmptyBasket.css';
-import { useNavigate } from 'react-router-dom';
 
 const EmptyBasket: FC = () => {
   const navigate = useNavigate();
@@ -10,6 +12,7 @@ const EmptyBasket: FC = () => {
   return (
     <div className='empty-basket'>
       <h1>It seems empty...</h1>
+      <EmptySpace />
       <h2 onClick={goToMain} >Go to product list</h2>
     </div>
   );
